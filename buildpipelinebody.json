@@ -1,0 +1,227 @@
+{
+    "options": [
+        {
+            "enabled": true,
+            "definition": {
+                "id": "5d58cc01-7c75-450c-be18-a388ddb129ec"
+            },
+            "inputs": {
+                "branchFilters": "[\"+refs/heads/*\"]",
+                "additionalFields": "{}"
+            }
+        },
+        {
+            "enabled": false,
+            "definition": {
+                "id": "a9db38f9-9fdc-478c-b0f9-464221e58316"
+            },
+            "inputs": {
+                "workItemType": "Bug",
+                "assignToRequestor": "true",
+                "additionalFields": "{}"
+            }
+        }
+    ],
+    "variables": {
+        "system.debug": {
+            "value": "false",
+            "allowOverride": true
+        }
+    },
+    "properties": {},
+    "tags": [],
+    "_links": {
+        "self": {
+            "href": "https://dev.azure.com/tintupjoy/b768c827-350c-4767-a76e-955247a157bf/_apis/build/Definitions/21?revision=2"
+        },
+        "web": {
+            "href": "https://dev.azure.com/tintupjoy/b768c827-350c-4767-a76e-955247a157bf/_build/definition?definitionId=21"
+        },
+        "editor": {
+            "href": "https://dev.azure.com/tintupjoy/b768c827-350c-4767-a76e-955247a157bf/_build/designer?id=21&_a=edit-build-definition"
+        },
+        "badge": {
+            "href": "https://dev.azure.com/tintupjoy/b768c827-350c-4767-a76e-955247a157bf/_apis/build/status/21"
+        }
+    },
+    "buildNumberFormat": "$(date:yyyyMMdd)$(rev:.r)",
+    "jobAuthorizationScope": "projectCollection",
+    "jobTimeoutInMinutes": 60,
+    "jobCancelTimeoutInMinutes": 5,
+    "process": {
+        "phases": [
+            {
+                "steps": [
+                    {
+                        "environment": {},
+                        "enabled": true,
+                        "continueOnError": false,
+                        "alwaysRun": false,
+                        "displayName": "Build an image",
+                        "timeoutInMinutes": 0,
+                        "condition": "succeeded()",
+                        "task": {
+                            "id": "e28912f1-0114-4464-802a-a3a35437fd16",
+                            "versionSpec": "0.*",
+                            "definitionType": "task"
+                        },
+                        "inputs": {
+                            "containerregistrytype": "Azure Container Registry",
+                            "dockerRegistryEndpoint": "",
+                            "azureSubscriptionEndpoint": "2534bc14-c650-4e81-9a45-d551d495f5cd",
+                            "azureContainerRegistry": "test",
+                            "action": "Build an image",
+                            "dockerFile": "**/Dockerfile",
+                            "buildArguments": "",
+                            "defaultContext": "true",
+                            "context": "",
+                            "imageName": "$(Build.Repository.Name):$(Build.BuildId)",
+                            "imageNamesPath": "",
+                            "qualifyImageName": "true",
+                            "additionalImageTags": "",
+                            "includeSourceTags": "false",
+                            "includeLatestTag": "false",
+                            "imageDigestFile": "",
+                            "containerName": "",
+                            "ports": "",
+                            "volumes": "",
+                            "envVars": "",
+                            "workDir": "",
+                            "entrypoint": "",
+                            "containerCommand": "",
+                            "detached": "true",
+                            "restartPolicy": "no",
+                            "restartMaxRetries": "",
+                            "customCommand": "",
+                            "dockerHostEndpoint": "",
+                            "enforceDockerNamingConvention": "true",
+                            "cwd": "$(System.DefaultWorkingDirectory)",
+                            "memory": ""
+                        }
+                    },
+                    {
+                        "environment": {},
+                        "enabled": true,
+                        "continueOnError": false,
+                        "alwaysRun": false,
+                        "displayName": "Push an image",
+                        "timeoutInMinutes": 0,
+                        "condition": "succeeded()",
+                        "task": {
+                            "id": "e28912f1-0114-4464-802a-a3a35437fd16",
+                            "versionSpec": "0.*",
+                            "definitionType": "task"
+                        },
+                        "inputs": {
+                            "containerregistrytype": "Azure Container Registry",
+                            "dockerRegistryEndpoint": "",
+                            "azureSubscriptionEndpoint": "2534bc14-c650-4e81-9a45-d551d495f5cd",
+                            "azureContainerRegistry": "test",
+                            "action": "Push an image",
+                            "dockerFile": "**/Dockerfile",
+                            "buildArguments": "",
+                            "defaultContext": "true",
+                            "context": "",
+                            "imageName": "$(Build.Repository.Name):$(Build.BuildId)",
+                            "imageNamesPath": "",
+                            "qualifyImageName": "true",
+                            "additionalImageTags": "",
+                            "includeSourceTags": "false",
+                            "includeLatestTag": "false",
+                            "imageDigestFile": "",
+                            "containerName": "",
+                            "ports": "",
+                            "volumes": "",
+                            "envVars": "",
+                            "workDir": "",
+                            "entrypoint": "",
+                            "containerCommand": "",
+                            "detached": "true",
+                            "restartPolicy": "no",
+                            "restartMaxRetries": "",
+                            "customCommand": "",
+                            "dockerHostEndpoint": "",
+                            "enforceDockerNamingConvention": "true",
+                            "cwd": "$(System.DefaultWorkingDirectory)",
+                            "memory": ""
+                        }
+                    }
+                ],
+                "name": "Agent job 1",
+                "refName": "Job_1",
+                "condition": "succeeded()",
+                "target": {
+                    "executionOptions": {
+                        "type": 0
+                    },
+                    "allowScriptsAuthAccessOption": false,
+                    "type": 1
+                },
+                "jobAuthorizationScope": "projectCollection"
+            }
+        ],
+        "target": {
+            "agentSpecification": {
+                "identifier": "ubuntu-16.04"
+            }
+        },
+        "type": 1
+    },
+    "repository": {
+        "properties": {
+            "cleanOptions": "0",
+            "labelSources": "0",
+            "labelSourcesFormat": "$(build.buildNumber)",
+            "reportBuildStatus": "true",
+            "gitLfsSupport": "false",
+            "skipSyncSource": "false",
+            "checkoutNestedSubmodules": "false",
+            "fetchDepth": "0"
+        },
+        "id": "968b4755-7605-45d4-a948-04cf678e87f2",
+        "type": "TfsGit",
+        "name": "html pages",
+        "url": "https://dev.azure.com/tintupjoy/NewTest/_git/html%20pages",
+        "defaultBranch": "refs/heads/master",
+        "clean": "false",
+        "checkoutSubmodules": false
+    },
+    "processParameters": {},
+    "quality": "definition",
+    "authoredBy": {
+        "displayName": "Tintu Joy",
+        "url": "https://spsprodsin1.vssps.visualstudio.com/A7941bcf0-bbf5-46c5-810b-ea561eaa6b4b/_apis/Identities/7d09cea1-5066-608c-a4e5-8d8402083747",
+        "_links": {
+            "avatar": {
+                "href": "https://dev.azure.com/tintupjoy/_apis/GraphProfile/MemberAvatars/msa.N2QwOWNlYTEtNTA2Ni03MDhjLWE0ZTUtOGQ4NDAyMDgzNzQ3"
+            }
+        },
+        "id": "7d09cea1-5066-608c-a4e5-8d8402083747",
+        "uniqueName": "tintupjoy@outlook.com",
+        "imageUrl": "https://dev.azure.com/tintupjoy/_apis/GraphProfile/MemberAvatars/msa.N2QwOWNlYTEtNTA2Ni03MDhjLWE0ZTUtOGQ4NDAyMDgzNzQ3",
+        "descriptor": "msa.N2QwOWNlYTEtNTA2Ni03MDhjLWE0ZTUtOGQ4NDAyMDgzNzQ3"
+    },
+    "drafts": [],
+    "queue": {
+        "_links": {
+            "self": {
+                "href": "https://dev.azure.com/tintupjoy/_apis/build/Queues/25"
+            }
+        },
+        "id": 25,
+        "name": "Azure Pipelines",
+        "url": "https://dev.azure.com/tintupjoy/_apis/build/Queues/25",
+        "pool": {
+            "id": 9,
+            "name": "Azure Pipelines",
+            "isHosted": true
+        }
+    },
+    "name": "buildpipelinename",
+    "path": "\\",
+    "type": "build",
+    "queueStatus": "enabled",
+    "project": {
+        "id": "b768c827-350c-4767-a76e-955247a157bf",
+        "name": "NewTest"    }
+}
